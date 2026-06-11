@@ -31,9 +31,9 @@
         fwd.normalize();
 
         var right = new THREE.Vector3();
-        right.crossVectors(fwd, new THREE.Vector3(0,1,0)).normalize();
+        right.crossVectors(new THREE.Vector3(0,1,0), fwd).normalize();
 
-        this.el.object3D.position.addScaledVector(fwd,  -ny * SPEED);
+        this.el.object3D.position.addScaledVector(fwd,   -ny * SPEED);
         this.el.object3D.position.addScaledVector(right,  nx * SPEED);
       }
     });
