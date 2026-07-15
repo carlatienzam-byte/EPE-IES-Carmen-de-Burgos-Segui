@@ -334,12 +334,16 @@
     document.addEventListener('touchstart', unlockAudio, { once: true, passive: true });
     document.addEventListener('click',      unlockAudio, { once: true });
 
-    /* ── CLICK EN PORTALES (desktop) ── */
-    ['miEnlace1','miEnlace2','miEnlace3','miEnlace4','miEnlace5'].forEach(function(id) {
-      var el = document.getElementById(id);
-      if (el) el.addEventListener('click', function() {
-        window.location.href = el.dataset.url;
-      });
+    /* ── CLICK EN PORTALES: BLOQUEADO A PROPÓSITO ──
+       Solo se puede entrar a un portal pulsando el botón "ENTRAR PORTAL".
+       Interceptamos el clic en fase de captura (antes de que el componente
+       'link' interno de A-Frame procese su navegación automática) y lo
+       detenemos por completo. */
+    document.querySelectorAll('.portal').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        e.stopImmediatePropagation();
+        e.preventDefault();
+      }, true);
     });
   </script>
 
