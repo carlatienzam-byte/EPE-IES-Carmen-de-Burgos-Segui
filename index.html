@@ -3,6 +3,9 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
   <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+  <!-- Colisiones con los modelos GLB (archivos locales del repo) -->
+  <script src="three-mesh-bvh.min.js"></script>
+  <script src="colisiones.js"></script>
   <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
 
   <!-- ══ COMPONENTES A-FRAME — DEBEN IR ANTES DE <a-scene> ══ -->
@@ -232,7 +235,7 @@
       - position="0 1.6 0" en la propia cámara fija la altura manualmente
       - mobile-movement en el rig, registrado ANTES del <a-scene>
     -->
-    <a-entity id="rig" position="0 0 0" mobile-movement>
+    <a-entity id="rig" colision-malla position="0 0 0" mobile-movement>
       <a-camera id="camera"
                 position="0 1.6 0"
                 camera="userHeight: 0"
