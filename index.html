@@ -85,8 +85,8 @@
       position: fixed; top: 50%; left: 50%;
       transform: translate(-50%,-50%);
       pointer-events: none; z-index: 9998;
-  
     }
+    #toast {
       position: fixed; bottom: 160px; left: 50%;
       transform: translateX(-50%);
       background: rgba(0,0,0,0.65); color: #fff;
@@ -269,10 +269,8 @@
       var c = d > JOY_R ? JOY_R / d : 1;
       joyDx =  p.x * c;
       joyDy = -p.y * c;
-      document.getElementById('debug').innerHTML =
-        'nx: '+(joyDx/JOY_R).toFixed(2)+'<br>ny: '+(joyDy/JOY_R).toFixed(2);
       joyThumb.style.transform =
-        'translate(calc(-50% + '+joyDx+'px), calc(-50% + '+joyDy+'px))';
+        'translate(calc(-50% + '+joyDx+'px), calc(-50% + '+(-joyDy)+'px))';
     }, { passive: false });
 
     joyBase.addEventListener('touchend', function(e) {
